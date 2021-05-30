@@ -9,7 +9,8 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/fowlron/.oh-my-zsh"
+export ME=$(id 1000 | sed 's/uid=1000(//' | sed 's/) gid.*//')
+export ZSH="/home/$ME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,7 +83,7 @@ plugins=(
     colored-man-pages
     zsh-syntax-highlighting
     zsh-autosuggestions
-    )
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,13 +115,8 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f /home/$ME/.alias ]] || source /home/$ME/.alias
 
 export PATH="$HOME/bin:$PATH"
-
-alias l='ls -lh'
-alias ll='ls -lah'
-alias v='nvim'
-
-alias tdot='/usr/bin/git --git-dir=$HOME/.tdot/ --work-tree=$HOME'
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'

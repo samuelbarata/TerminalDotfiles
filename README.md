@@ -24,17 +24,22 @@ Nvim dotfiles depend on:
  - npm
  - pylint
  - universal ctags
+ - vim/plug
+
+
+```bash
+# vim/plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
 
 Make sure to run `:PlugInstall` on nvim after cloning the dotfiles. 
 
 Clone Instructions:
 ```
 alias tdot='/usr/bin/git --git-dir=$HOME/.tdot --work-tree=$HOME'
-git clone --bare https://github.com/Fowlron/TerminalDotfiles.git $HOME/.tdot
+git clone --bare https://github.com/samuelbarata/TerminalDotfiles.git $HOME/.tdot
 tdot stash
 tdot checkout
 tdot config --local status.showUntrackedFiles no
 ```
-##
-### Desktop Dotfiles
-TODO
